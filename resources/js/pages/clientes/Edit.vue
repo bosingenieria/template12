@@ -4,7 +4,7 @@
         <form @submit.prevent="submit" class="mt-5 px-10">
             <div class="grid grid-cols-4 gap-4">
                 <div class="cols-span-1">
-                    <InputLabel for="tipo_documento" value="Tipo de documento" />
+                    <InputLabel class="dark:text-white" for="tipo_documento" value="Tipo de documento" />
                     <Select
                         v-model="form.tipo_doc"
                         :options="tipos_doc"
@@ -16,52 +16,52 @@
                     <InputError class="mt-2" :message="form.errors.tipo_doc" />
                 </div>
                 <div class="cols-span-1">
-                    <InputLabel for="documento_identidad" value="Número de documento" />
+                    <InputLabel class="dark:text-white" for="documento_identidad" value="Número de documento" />
                     <InputText v-model="form.documento_identidad" class="font-8 mt-2 w-full" style="text-transform: uppercase" />
                     <InputError class="mt-2" :message="form.errors.documento_identidad" />
                 </div>
                 <div class="col-span-1">
-                    <InputLabel for="nombre" value="Nombre" />
+                    <InputLabel class="dark:text-white" for="nombre" value="Nombre" />
                     <InputText v-model="form.nombre" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.nombre" />
                 </div>
                 <div class="col-span-1">
-                    <InputLabel for="apellido" value="Apellido" />
+                    <InputLabel class="dark:text-white" for="apellido" value="Apellido" />
                     <InputText v-model="form.apellido" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.apellido" />
                 </div>
             </div>
             <div class="mt-2 grid grid-cols-3 gap-4">
-                
+
                 <div class="col-span-1">
-                    <InputLabel for="email" value="Email" />
+                    <InputLabel class="dark:text-white" for="email" value="Email" />
                     <InputText v-model="form.email" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.email" />
                 </div>
                 <div class="col-span-1">
-                    <InputLabel for="telefono_principal" value="Telefono principal" />
+                    <InputLabel class="dark:text-white" for="telefono_principal" value="Telefono principal" />
                     <InputNumber v-model="form.telefono_principal" class="font-8 mt-2 w-full" :useGrouping="false" fluid />
                     <InputError class="mt-2" :message="form.errors.telefono_principal" />
                 </div>
                 <div class="col-span-1">
-                    <InputLabel for="telefono_secundario" value="Telefono secundario" />
+                    <InputLabel class="dark:text-white" for="telefono_secundario" value="Telefono secundario" />
                     <InputNumber v-model="form.telefono_secundario" class="font-8 mt-2 w-full" :useGrouping="false" fluid />
                     <InputError class="mt-2" :message="form.errors.telefono_secundario" />
                 </div>
             </div>
             <div class="mt-2 grid grid-cols-3 gap-4">
                 <div class="col-span-1">
-                    <InputLabel for="direccion_principal" value="Dirección principal" />
+                    <InputLabel class="dark:text-white" for="direccion_principal" value="Dirección principal" />
                     <InputText v-model="form.direccion_principal" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.direccion_principal" />
                 </div>
                 <div class="col-span-1">
-                    <InputLabel for="direccion_secundaria" value="Dirección secundaria" />
+                    <InputLabel class="dark:text-white" for="direccion_secundaria" value="Dirección secundaria" />
                     <InputText v-model="form.direccion_secundaria" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.direccion_secundaria" />
                 </div>
                 <div class="col-span-1">
-                    <InputLabel for="estado" value="Estado" />
+                    <InputLabel class="dark:text-white" for="estado" value="Estado" />
                     <ToggleSwitch class="w-full mt-2 font-8" v-model="form.estado"/>
                     <InputError
                         class="mt-2"
