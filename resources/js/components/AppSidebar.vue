@@ -5,22 +5,7 @@ import NavUser from '@/components/NavUser.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
-import {
-    Barcode,
-    BookOpen,
-    BookUser,
-    Cloudy,
-    Contact,
-    Folder,
-    LayoutGrid,
-    MapPinned,
-    PackageSearch,
-    Pickaxe,
-    ScanBarcode,
-    Users,
-    UserSearch,
-    Warehouse,
-} from 'lucide-vue-next';
+import { BookOpen, BookUser, Cloudy, Contact, Folder, LayoutGrid, Pickaxe, ScanBarcode, Users } from 'lucide-vue-next';
 import { computed } from 'vue';
 import AppLogo from './AppLogo.vue';
 
@@ -111,7 +96,7 @@ const mainNavItemsSecurity: NavItem[] = [
         title: 'Usuarios',
         href: '/usuarios',
         icon: Users,
-        permission: null,
+        permission: 'usuarios-listar',
     },
     {
         title: 'Roles',
