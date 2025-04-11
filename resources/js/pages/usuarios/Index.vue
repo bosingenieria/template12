@@ -1,7 +1,7 @@
 <template>
     <Head title="Usuarios" />
     <AppLayout :breadcrumbs="breadcrumbs">
-        <div class="col-span-2 m-2 mb-2 grid grid-cols-3 pr-3">
+        <div class="grid lg:grid-cols-3 grid-cols-1 gap-4 col-span-2 mb-2 pr-3 m-2">
             <div class="cols-span-1">
                 <Select
                     v-model="selectedEstado"
@@ -13,9 +13,9 @@
                 />
             </div>
             <div class="col-span-1">
-                <IconField>
+                <IconField class="w-full md:w-56">
                     <InputIcon class="pi pi-search" />
-                    <InputText v-model="search" @keypress.enter="filtrarPorEstado" placeholder="Buscar..." />
+                    <InputText class="w-full" v-model="search" @keypress.enter="filtrarPorEstado" placeholder="Buscar..." />
                 </IconField>
             </div>
             <div class="cols-span-1 flex justify-end">
