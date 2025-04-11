@@ -4,7 +4,7 @@
         <form @submit.prevent="submit" class="mt-5 px-10">
             <div class="grid grid-cols-3 gap-4">
                 <div class="cols-span-1">
-                    <InputLabel for="tipo_documento" value="Tipo de documento" />
+                    <InputLabel for="tipo_documento" value="Tipo de documento" class="dark:text-gray-200" />
                     <Select
                         v-model="form.tipo_doc"
                         :options="tipos_doc"
@@ -16,46 +16,46 @@
                     <InputError class="mt-2" :message="form.errors.tipo_doc" />
                 </div>
                 <div class="cols-span-1">
-                    <InputLabel for="documento" value="Número de documento" />
+                    <InputLabel for="documento" value="Número de documento" class="dark:text-gray-200" />
                     <InputText v-model="form.documento" class="font-8 mt-2 w-full" style="text-transform: uppercase" />
                     <InputError class="mt-2" :message="form.errors.documento" />
                 </div>
                 <div class="col-span-1">
-                    <InputLabel for="nombre" value="Nombre" />
+                    <InputLabel for="nombre" value="Nombre" class="dark:text-gray-200" />
                     <InputText v-model="form.nombre" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.nombre" />
                 </div>
             </div>
             <div class="mt-2 grid grid-cols-3 gap-4">
                 <div class="cols-span-1">
-                    <InputLabel for="Area" value="Area" />
+                    <InputLabel for="Area" value="Area" class="dark:text-gray-200" />
                     <InputText v-model="form.departamento" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.departamento" />
                 </div>
                 <div class="cols-span-1">
-                    <InputLabel for="cargo" value="Cargo" />
+                    <InputLabel for="cargo" value="Cargo" class="dark:text-gray-200" />
                     <InputText v-model="form.cargo" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.cargo" />
                 </div>
                 <div class="cols-span-1">
-                    <InputLabel for="fecha" value="Fecha nacimiento" />
+                    <InputLabel for="fecha" value="Fecha nacimiento" class="dark:text-gray-200" />
                     <DatePicker v-model="form.fecha_nacimiento" class="font-8 mt-2 w-full" dateFormat="yy-mm-dd" />
                     <InputError class="mt-2" :message="form.errors.cargo" />
                 </div>
             </div>
             <div class="mt-2 grid grid-cols-3 gap-4">
                 <div class="col-span-1">
-                    <InputLabel for="email" value="Email" />
+                    <InputLabel for="email" value="Email" class="dark:text-gray-200" />
                     <InputText v-model="form.email" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.email" />
                 </div>
                 <div class="col-span-1">
-                    <InputLabel for="telefono" value="Telefono" />
+                    <InputLabel for="telefono" value="Telefono" class="dark:text-gray-200" />
                     <InputNumber v-model="form.telefono" class="font-8 mt-2 w-full" :useGrouping="false" fluid />
                     <InputError class="mt-2" :message="form.errors.telefono" />
                 </div>
                 <div class="col-span-1">
-                    <InputLabel for="direccion" value="Dirección" />
+                    <InputLabel for="direccion" value="Dirección" class="dark:text-gray-200" />
                     <InputText v-model="form.direccion" class="font-8 mt-2 w-full" />
                     <InputError class="mt-2" :message="form.errors.direccion" />
                 </div>
