@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Modulos;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Validation\Rules;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -26,10 +27,20 @@ class UsuariosController extends Controller implements HasMiddleware
     {
 
         $perPage = $request->input('per_page', 10);
+        $estado = $request->input('estado', 1);
+        $search = $request->input('search');
 
-        $users = User::with('roles')->orderBy('id', 'DESC')->paginate($perPage)->withQueryString();
+        $users = User::with('roles')->orderBy('id', 'DESC')
+            ->when($estado !== null, function ($query) use ($estado) {
+                $query->where('status', $estado);
+            })
+            ->when($search, function ($query) use ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('name', 'like', "%{$search}%")
+                        ->orWhere('email', 'like', "%{$search}%");
+                });
+            })->paginate($perPage)->withQueryString();
 
-        dd($users->toArray());
         return Inertia::render('usuarios/Index', [
             'users' => $users
         ]);
@@ -46,7 +57,7 @@ class UsuariosController extends Controller implements HasMiddleware
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|string|unique:users,email',
-            'password' => 'required|string|min:8',
+            'password' => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
             'roles_user' => 'required'
         ]);
 
@@ -54,20 +65,23 @@ class UsuariosController extends Controller implements HasMiddleware
             'password' => Hash::make($request->password),
         ]);
 
-        $user = User::create($request->all());
-        $user->syncRoles($request->roles);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        $user->syncRoles($request->roles_user);
 
         return redirect()->route('usuarios.index');
     }
 
     public function edit($id)
     {
-        $usuario = User::findOrFail($id);
+        $user = User::findOrFail($id);
         $roles = Role::pluck('name', 'name')->all();
-        $userRole = $usuario->roles->pluck('name', 'name')->all();
+        $userRole = $user->roles->pluck('name', 'name')->all();
 
-        dd($usuario->toArray());
-        return Inertia::render('usuarios/Edit', compact('usuario', 'roles', 'userRole'));
+        return Inertia::render('usuarios/Edit', compact('user', 'roles', 'userRole'));
     }
 
     public function update(Request $request, $id)
@@ -75,15 +89,25 @@ class UsuariosController extends Controller implements HasMiddleware
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|string|unique:users,email,' . $id,
-            'roles_user' => 'required'
+            'roles_user' => 'required',
+            'password' => ['nullable', 'confirmed', 'min:8', Rules\Password::defaults()],
         ]);
 
         $user = User::findOrFail($id);
-        $user->update($request->all());
+
+        // Filtrar campos para evitar problemas si 'password' viene vacío
+        $data = $request->only(['name', 'email']);
+
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $user->update($data);
         $user->syncRoles($request->roles_user);
 
         return redirect()->route('usuarios.index');
     }
+
 
     public function destroy($id)
     {
