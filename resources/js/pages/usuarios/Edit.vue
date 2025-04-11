@@ -30,7 +30,11 @@
                 </div>
                 <InputError class="mt-2" :message="form.errors.roles_user" />
             </div>
-            <div></div>
+            <div>
+                <InputLabel for="estado" value="Estado" class="dark:text-white" />
+                <ToggleSwitch v-model="form.status" />
+                <InputError class="mt-2" :message="form.errors.status" />
+            </div>
             <hr class="col-span-2" />
             <div>
                 <InputLabel for="password" value="Contraseña" class="dark:text-white" />
@@ -67,6 +71,9 @@ import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import MultiSelect from 'primevue/multiselect';
 import { useToast } from 'primevue/usetoast';
+import ToggleSwitch from 'primevue/toggleswitch';
+
+
 const toast = useToast();
 const props = defineProps({
     user: {
@@ -86,17 +93,17 @@ const selectedRoles = Object.values(props.userRole);
 const user = props.user;
 const breadcrumbs: BreadcrumbItem[] = [{ title: 'Editar usuario', href: '/dashboard' }];
 
+console.log(user);
 const form = useForm({
     name: user.name,
     email: user.email,
-    estado: user.estado,
+    status: user.status === 1,
     password: '',
     password_confirmation: '',
     roles_user: selectedRoles,
 });
 
 const submit = () => {
-    form.estado = 1;
     form.patch(route('usuarios.update', user.id), {
         onSuccess: function () {
             toast.add({

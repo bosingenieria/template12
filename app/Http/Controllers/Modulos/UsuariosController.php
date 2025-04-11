@@ -96,7 +96,7 @@ class UsuariosController extends Controller implements HasMiddleware
         $user = User::findOrFail($id);
 
         // Filtrar campos para evitar problemas si 'password' viene vacío
-        $data = $request->only(['name', 'email']);
+        $data = $request->only(['name', 'email', 'status']);
 
         if ($request->filled('password')) {
             $data['password'] = Hash::make($request->password);
