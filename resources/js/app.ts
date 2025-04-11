@@ -31,39 +31,39 @@ const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 const Noir = definePreset(Aura, {
     semantic: {
         primary: {
-            50: '{emerald.50}',
-            100: '{emerald.100}',
-            200: '{emerald.200}',
-            300: '{emerald.300}',
-            400: '{teal.400}',
-            500: '{teal.500}',
-            600: '{teal.600}',
-            700: '{cyan.700}',
-            800: '{cyan.800}',
-            900: '{cyan.900}',
-            950: '{cyan.950}'
+            50: '{indigo.50}',
+            100: '{indigo.100}',
+            200: '{indigo.200}',
+            300: '{indigo.300}',
+            400: '{blue.400}',
+            500: '{blue.500}',
+            600: '{blue.600}',
+            700: '{indigo.700}',
+            800: '{indigo.800}',
+            900: '{indigo.900}',
+            950: '{indigo.950}'
         },
         colorScheme: {
             light: {
                 primary: {
-                    color: '{cyan.950}',
+                    color: '{indigo.950}',
                     inverseColor: '#ffffff',
-                    hoverColor: '{cyan.900}',
-                    activeColor: '{cyan.800}'
+                    hoverColor: '{indigo.900}',
+                    activeColor: '{indigo.800}'
                 },
                 highlight: {
-                    background: '{cyan.950}',
-                    focusBackground: '{cyan.700}',
+                    background: '{indigo.950}',
+                    focusBackground: '{indigo.700}',
                     color: '#ffffff',
                     focusColor: '#ffffff'
                 }
             },
             dark: {
                 primary: {
-                    color: '{emerald.50}',
-                    inverseColor: '{cyan.950}',
-                    hoverColor: '{emerald.100}',
-                    activeColor: '{emerald.200}'
+                    color: '{indigo.50}',
+                    inverseColor: '{indigo.950}',
+                    hoverColor: '{indigo.100}',
+                    activeColor: '{indigo.200}'
                 },
                 highlight: {
                     background: 'rgba(250, 250, 250, .16)',

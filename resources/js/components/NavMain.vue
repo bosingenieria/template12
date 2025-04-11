@@ -38,7 +38,7 @@ const page = usePage<SharedData>();
                 >
                     <SidebarMenuItem>
                         <CollapsibleTrigger asChild>
-                            <SidebarMenuButton as-child class="hover:bg-teal-600 hover:text-white">
+                            <SidebarMenuButton as-child class="hover:bg-indigo-600 hover:text-white">
                                 <button>
                                     <component :is="item.icon" />
                                     <span>{{ item.title }}</span>
@@ -51,7 +51,7 @@ const page = usePage<SharedData>();
                                 <SidebarMenuSubItem
                                     v-for="sub in item.submenus"
                                     :key="sub.title"
-                                    :class="{ 'rounded-md bg-teal-600 text-white': page.url.split(item.href).pop().includes(sub.key.toLowerCase()) }"
+                                    :class="{ 'rounded-md bg-indigo-600 text-white': page.url.split(item.href).pop().includes(sub.key.toLowerCase()) }"
                                 >
                                     <Link
                                         :href="sub.href"
@@ -74,7 +74,7 @@ const page = usePage<SharedData>();
 
                 <!-- Si NO tiene submenús, renderizar el botón normal -->
                 <SidebarMenuItem v-else>
-                    <SidebarMenuButton as-child :is-active="page.url.includes(item.title.toLowerCase())" class="hover:bg-teal-600 hover:text-white">
+                    <SidebarMenuButton as-child :is-active="page.url.includes(item.title.toLowerCase())" class="hover:bg-indigo-600 hover:text-white">
                         <Link :href="item.href">
                             <component :is="item.icon" />
                             <span>{{ item.title }}</span>
