@@ -55,13 +55,13 @@ const colorPorModulo = (modulo) => {
         usuarios: 'bg-cyan-800 text-white dark:text-white',
         servicios: 'bg-sky-600 text-white dark:bg-sky-500 dark:text-white',
         empleados: 'bg-cyan-500 text-white',
-        categorias: 'bg-teal-500 text-white dark:text-white',
+        categorias: 'bg-indigo-500 text-white dark:text-white',
         rol: 'bg-cyan-700 text-white dark:text-white',
-        ubicaciones: 'bg-teal-600 text-white dark:text-white',
+        ubicaciones: 'bg-indigo-600 text-white dark:text-white',
         inventario: 'bg-cyan-900 text-white dark:text-white',
         proveedores: 'bg-cyan-800 text-white dark:text-white',
         transacciones: 'bg-cyan-700 text-white dark:text-white',
-        productos: 'bg-teal-500 text-white dark:text-white',
+        productos: 'bg-indigo-500 text-white dark:text-white',
     };
     return colores[modulo] || 'bg-gray-200';
 };

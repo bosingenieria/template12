@@ -32,7 +32,7 @@
             </div>
             <div>
                 <InputLabel for="estado" value="Estado" class="dark:text-white" />
-                <ToggleSwitch v-model="form.status" />
+                <ToggleSwitch v-model="form.status" class="mt-2" />
                 <InputError class="mt-2" :message="form.errors.status" />
             </div>
             <hr class="col-span-2" />

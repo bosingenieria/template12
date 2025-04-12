@@ -69,7 +69,7 @@
 
         <!-- Botón para volver -->
         <a href="{{ route('dashboard') }}"
-            class="mt-6 inline-block px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105">
+            class="mt-6 inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105">
             Volver al inicio
         </a>
     </div>

@@ -62,7 +62,7 @@
             </div>
             <div class="mt-5 flex w-full justify-end gap-4">
                 <Button type="button" label="Cancelar" variant="outlined" icon="pi pi-times" class="font-8" @click="goBack" />
-                <Button type="submit" label="Guardar" icon="pi pi-save" class="font-8" />
+                <Button type="submit" label="Guardar" icon="pi pi-save" :loader="true" class="font-8" />
             </div>
         </form>
     </AppLayout>
